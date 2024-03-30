@@ -1,0 +1,187 @@
+@font-face {
+  font-family: heavy;
+  src: url(font.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #2c3e50;
+  position: relative;
+}
+
+.calculator-grid {
+  background-image: linear-gradient(to top left, #E2D0B1, #e77f67);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  display: grid;
+  padding: 20px 0;
+  width: 285px;
+  z-index: 1;
+  border: black solid 1px;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: minmax(60px, auto) repeat(5, 50px);
+  grid-gap: 15px;
+  row-gap: 15px;
+  box-shadow:
+    3px 3px 3px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(255, 255, 255, 0.3),
+    inset -3px -3px 3px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 3px rgba(255, 255, 255, 0.3);
+}
+
+.calculator-grid button {
+  font-family: heavy;
+  font-size: 1.2rem;
+  outline: none;
+  border: black solid 1px;
+  background-color: #5DFF80;
+  border-radius: 50%;
+  position: relative;
+  box-shadow:
+    3px 3px 3px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(255, 255, 255, 0.3),
+    inset -3px -3px 3px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 3px rgba(255, 255, 255, 0.3);
+}
+
+.calculator-grid button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 125%;
+  width: 120%;
+  background-image: linear-gradient(to top, #E2BF01, #DDD7BE);
+  border: black solid 1px;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow:
+    3px 3px 3px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(255, 255, 255, 0.3),
+    inset -3px -3px 3px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 3px rgba(255, 255, 255, 0.3);
+}
+
+.span-two {
+  grid-column: span 2;
+  border-radius: 10px !important;
+
+}
+
+.span-two:after {
+  width: 110% !important;
+  height: 120% !important;
+  background-image: linear-gradient(to bottom, #AFAB99, rgba(0, 0, 0, 1)) !important;
+  background-color: black !important;
+}
+
+.output {
+  font-family: heavy;
+  grid-column: 1 / -1;
+  background-color: #58B19F;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  border: black solid 1px;
+  padding: 3px 10px;
+  color: black;
+  box-shadow:
+    inset 4px 4px 3px rgba(0, 0, 0, 0.3),
+    inset -4px -4px 3px rgba(255, 255, 255, 0.3);
+}
+
+.previousDisplay {
+  font-size: 0.7rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.currentDisplay {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.color {
+  box-shadow:
+    3px 3px 3px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(255, 255, 255, 0.3),
+    inset 3px 3px 3px rgba(0, 0, 0, 0.3),
+    inset -3px -3px 3px rgba(255, 255, 255, 0.3) !important;
+}
+
+.operator {
+  background-color: yellow !important;
+}
+
+.operator:after,
+.del:after,
+.equal:after {
+  background-color: black !important;
+  background-image: linear-gradient(to bottom, #AFAB99, rgba(0, 0, 0, 1)) !important;
+}
+
+.ac {
+  background-color: #FF2099 !important;
+}
+
+.del {
+  background-image: linear-gradient(to top right, #7330DB, #D3CCDE) !important;
+}
+
+.equal {
+  background-color: #20FAFF !important;
+}
+
+.del:active,
+.equal:active,
+.ac:active,
+.operator:active,
+[data-number]:active {
+  box-shadow:
+    3px 3px 3px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(255, 255, 255, 0.3),
+    inset 3px 3px 3px rgba(0, 0, 0, 0.3),
+    inset -3px -3px 3px rgba(255, 255, 255, 0.3) !important;
+}
+
+@media (min-width: 768px) {
+  .calculator-grid {
+    width: fit-content;
+    padding: 2.4rem 2.4rem;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: minmax(160px, auto) repeat(5, 150px);
+    column-gap: 45px;
+    row-gap: 45px;
+  }
+
+  .previousDisplay {
+    font-size: 1.3rem;
+  }
+
+  .currentDisplay {
+    font-size: 2.3rem;
+  }
+
+  .calculator-grid button {
+    font-size: 3rem;
+    border: black solid 2px;
+  }
+
+  .calculator-grid button:after {
+    border: black solid 3px;
+  }
+}
